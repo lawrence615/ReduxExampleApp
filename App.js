@@ -1,23 +1,17 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import { createStore } from 'redux'
+import { createStore, combineReducers } from 'redux'
 import { Provider } from 'react-redux'
-// import {} from 'react-navigation-native'
-import { createStackNavigator } from 'react-navigation-stack'
 
 import AppNavigator from './navigation/AppNavigation'
+import FriendsReducer from './store/reducers/friends'
+
+const rootReducer = combineReducers({
+  friends: FriendsReducer
+})
+
+const store = createStore(rootReducer)
 
 
 export default function App() {
-  return <AppNavigator />
+  return <Provider store={store}><AppNavigator /></Provider>
 }
-
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     backgroundColor: '#fff',
-//     alignItems: 'center',
-//     justifyContent: 'center',
-//   },
-// });
