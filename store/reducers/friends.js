@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux'
-import { ADD_FRIEND } from '../actions/friends'
+import { ADD_FRIEND } from '../types'
 
 const initialState = {
   currentFriends: [],
